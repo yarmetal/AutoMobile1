@@ -47,6 +47,12 @@ public class MainActivityTest {
                                 1),
                         isDisplayed()));
         tabView3.perform(click());
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.section_label), withText("Page: 2"),
+                        withParent(allOf(withId(R.id.constraintLayout),
+                                withParent(withId(R.id.view_pager)))),
+                        isDisplayed()));
+        textView.check(matches(withText("Page: 2")));
     }
 
     private static Matcher<View> childAtPosition(
